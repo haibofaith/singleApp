@@ -37,4 +37,14 @@ public class ProductServiceImpl implements ProductService{
             }
         });
     }
+
+    @Qualifier("jdbcUserService")
+    @Autowired
+    private JdbcTemplate jdbcTemplate2;
+
+    @Override
+    public Integer getSumSalary() {
+        String sql = "select sum(salary) sumcount from jeecg_demo";
+        return jdbcTemplate2.queryForObject(sql,Integer.class);
+    }
 }

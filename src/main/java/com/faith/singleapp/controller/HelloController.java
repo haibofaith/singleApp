@@ -30,4 +30,10 @@ public class HelloController {
     public ResponseEntity<Object> mysqlData() {
         return new ResponseEntity<>(productService.getList(), HttpStatus.OK);
     }
+
+    @RequestMapping("/oracleData")
+    public ResponseEntity<Object> oracleData() {
+        return new ResponseEntity<>(productService.getSumSalary(), HttpStatus.OK);
+    }
+
 }
